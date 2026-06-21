@@ -110,7 +110,9 @@
     .nav-logo {
       display: flex; align-items: center; gap: 10px;
       font-weight: 700; font-size: 15px; color: var(--text-dark);
+      text-decoration: none; outline: none; border: none;
     }
+    .nav-logo img { height: 40px; width: auto; display: block; border: none; outline: none; }
     .nav-logo-mark {
       width: 34px; height: 34px; border-radius: 8px;
       background: var(--primary);
@@ -199,7 +201,7 @@
     }
     .info-card h4 { font-size: 13px; font-weight: 700; margin-bottom: 8px; }
     .info-card p  { font-size: 12.5px; line-height: 1.65; }
-    .rounded-img { width: 100%; border-radius: 16px; display: block; }
+    .rounded-img { width: 100%; border-radius: 16px; display: block; border: 4px solid #fff; outline: none; box-sizing: border-box; }
     @media (max-width: 820px) {
       .two-col { grid-template-columns: 1fr; gap: 40px; }
       .info-cards { grid-template-columns: 1fr; }
@@ -265,7 +267,9 @@
     @media (max-width: 820px) { .safety-grid { grid-template-columns: 1fr; } }
     @media (max-width: 480px) { .process-flow { flex-direction: column; }
       .proc-arrow { transform: rotate(90deg); align-self: center; }
-      .proc-step { min-width: unset; margin-right: 0; margin-bottom: 6px; } }
+      .proc-step { min-width: unset; margin-right: 0; margin-bottom: 6px; }
+      .badges { flex-direction: column; }
+      .badge-item { min-width: unset; margin-right: 0; margin-bottom: 6px; } }
 
     /* ── HOW SAFER ACCESS WORKS ── */
     .process-flow {
@@ -286,15 +290,19 @@
       color: var(--primary); font-size: 18px; padding: 0 4px; flex-shrink: 0;
     }
     .badges {
-      display: flex; gap: 14px; flex-wrap: wrap; margin: 24px 0 30px;
+      display: flex; align-items: stretch; gap: 0;
+      margin: 8px 0 30px;
     }
     .badge-item {
-      display: flex; align-items: center; gap: 8px;
-      border: 1.5px solid var(--border); border-radius: 8px;
-      padding: 10px 18px; font-size: 13px; font-weight: 600;
-      background: #fff;
+      flex: 1; min-width: 160px;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      border: 1.5px solid var(--border); border-radius: 12px;
+      padding: 18px 14px; font-size: 12.5px; font-weight: 700;
+      background: var(--primary-light); text-align: center;
+      margin-right: 6px;
     }
-    .badge-icon { color: var(--primary); font-size: 16px; }
+    .badge-item:last-child { margin-right: 0; }
+    .badge-icon { color: var(--primary); font-size: 16px; flex-shrink: 0; }
 
     /* ── STERILE SOURCING ── */
     .sterile-grid {
@@ -630,16 +638,15 @@
 <nav>
   <div class="nav-inner">
     <a href="#home" class="nav-logo">
-      <div class="nav-logo-mark">P</div>
-      Peptides Australia
+      <img src="https://lh3.googleusercontent.com/d/1mtkyEmHdVUSq1UBag5DQbSOB8YIuU1fT" alt="Peptides Australia" />
     </a>
     <button class="nav-toggle" id="navToggle" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links" id="navLinks">
       <li><a href="#what-are-peptides">What Are Peptides</a></li>
-      <li><a href="#what-they-do">What They Do</a></li>
-      <li><a href="#goals">Goals</a></li>
+      <li><a href="#goals">What They Do</a></li>
+      <li><a href="#what-they-do">Goals</a></li>
       <li><a href="#research">Research</a></li>
       <li><a href="#safety">Safety</a></li>
       <li><a href="#faqs">FAQs</a></li>
@@ -867,8 +874,8 @@
       </div>
       <div>
         <img
-          src="https://lh3.googleusercontent.com/d/17ZrnFg9oAuFvJ35323IQD8jX9CBmFjoC"
-          alt="Doctor conducting a telehealth video consultation"
+          src="https://lh3.googleusercontent.com/d/10YucKSoPZvn_MDtgWQzpdDCPfoMUttmf"
+          alt="Buying peptides online in Australia"
           class="rounded-img" loading="lazy"
         />
       </div>
@@ -1004,9 +1011,9 @@
         </div>
       </a>
 
-      <a class="peptide-card" href="#product/cjc-1295-ipamorelin" data-pcat="longevity">
+      <a class="peptide-card" href="#product/cjc-1295-ipamorelin" data-pcat="longevity performance">
         <div class="peptide-card-img">
-          <img src="https://lh3.googleusercontent.com/d/1kcs07Plyg2yPToMXnQ3Mnywh6yQ0bn8l" alt="CJC-1295 + Ipamorelin" loading="lazy" />
+          <img src="https://lh3.googleusercontent.com/d/1QpU2SqREDUngayrkAHnDuYem5_Grf6J5" alt="CJC-1295 + Ipamorelin" loading="lazy" />
         </div>
         <div class="peptide-card-body">
           <div class="peptide-card-cat">GH Pathways</div>
@@ -1016,7 +1023,7 @@
         </div>
       </a>
 
-      <a class="peptide-card" href="#product/tesamorelin" data-pcat="metabolism">
+      <a class="peptide-card" href="#product/tesamorelin" data-pcat="metabolism performance">
         <div class="peptide-card-img">
           <img src="https://lh3.googleusercontent.com/d/1WGcShY7g8opMtI9PUJ_Go7-Cd1FKqZ8x" alt="Tesamorelin" loading="lazy" />
         </div>
@@ -1054,7 +1061,7 @@
 
       <a class="peptide-card" href="#product/pt-141" data-pcat="vitality">
         <div class="peptide-card-img">
-          <img src="https://lh3.googleusercontent.com/d/1oD_YoF-vIuVb_oHjMYl5xBVk1JiA_JNR" alt="PT-141" loading="lazy" />
+          <img src="https://lh3.googleusercontent.com/d/1DDxslg9Qa4mk35hKYb3e-BOupDClRsIH" alt="PT-141" loading="lazy" />
         </div>
         <div class="peptide-card-body">
           <div class="peptide-card-cat">Sexual Health &amp; Arousal</div>
@@ -1078,7 +1085,7 @@
 
       <a class="peptide-card" href="#product/thymosin-alpha-1" data-pcat="immunity">
         <div class="peptide-card-img">
-          <img src="https://lh3.googleusercontent.com/d/1oD_YoF-vIuVb_oHjMYl5xBVk1JiA_JNR" alt="Thymosin Alpha-1" loading="lazy" />
+          <img src="https://lh3.googleusercontent.com/d/1ZEhHxyU182hmYQ83YsPmvktzyYvQzzZg" alt="Thymosin Alpha-1" loading="lazy" />
         </div>
         <div class="peptide-card-body">
           <div class="peptide-card-cat">Immunity</div>
@@ -1090,7 +1097,7 @@
 
       <a class="peptide-card" href="#product/aod-9604" data-pcat="metabolism">
         <div class="peptide-card-img">
-          <img src="https://lh3.googleusercontent.com/d/1oD_YoF-vIuVb_oHjMYl5xBVk1JiA_JNR" alt="AOD 9604" loading="lazy" />
+          <img src="https://lh3.googleusercontent.com/d/1xr8_wTLWiBfAvAY-pMOfiVqaFErn1tA5" alt="AOD 9604" loading="lazy" />
         </div>
         <div class="peptide-card-body">
           <div class="peptide-card-cat">Metabolism &amp; Body Composition</div>
@@ -1284,7 +1291,7 @@ const PRODUCTS = [
     slug: 'cjc-1295-ipamorelin',
     name: 'CJC-1295 + Ipamorelin',
     cat: 'GH PATHWAYS',
-    imgId: '1kcs07Plyg2yPToMXnQ3Mnywh6yQ0bn8l',
+    imgId: '1QpU2SqREDUngayrkAHnDuYem5_Grf6J5',
     imgAlt: 'CJC-1295 + Ipamorelin',
     vialLabel: { line1: 'CJC-1295 + Ipamorelin', line2: 'PEPTIDE BLEND' },
     desc: 'CJC-1295 and ipamorelin are often discussed together in growth hormone pathway research. CJC-1295 is a GHRH analogue, while ipamorelin is a selective growth hormone secretagogue. Together they are studied for their potential to support pulsatile GH release and downstream IGF-1 signalling, though evidence for the combined stack remains limited and suitability is individual.',
@@ -1430,7 +1437,7 @@ const PRODUCTS = [
     slug: 'pt-141',
     name: 'PT-141',
     cat: 'SEXUAL HEALTH &amp; AROUSAL',
-    imgId: '1oD_YoF-vIuVb_oHjMYl5xBVk1JiA_JNR',
+    imgId: '1DDxslg9Qa4mk35hKYb3e-BOupDClRsIH',
     imgAlt: 'PT-141',
     vialLabel: { line1: 'PT-141', line2: 'PEPTIDE' },
     desc: 'PT-141, also known as bremelanotide, is a melanocortin-receptor agonist researched for sexual desire and arousal-related pathways. Human clinical evidence exists, especially in acquired, generalized hypoactive sexual desire disorder (HSDD) in premenopausal women, making it a context-specific sexual-health peptide rather than a broad libido claim.',
@@ -1503,7 +1510,7 @@ const PRODUCTS = [
     slug: 'thymosin-alpha-1',
     name: 'Thymosin Alpha-1',
     cat: 'IMMUNITY',
-    imgId: '1oD_YoF-vIuVb_oHjMYl5xBVk1JiA_JNR',
+    imgId: '1ZEhHxyU182hmYQ83YsPmvktzyYvQzzZg',
     imgAlt: 'Thymosin Alpha-1',
     vialLabel: null,
     desc: 'Thymosin alpha-1 is a thymic peptide researched for immune modulation, T-cell signalling and host-defence pathways. Research often explores immune resilience, inflammatory balance and adjunctive support in immune-challenged settings, but relevance depends on the condition and study design.',
@@ -1539,7 +1546,7 @@ const PRODUCTS = [
     slug: 'aod-9604',
     name: 'AOD 9604',
     cat: 'METABOLISM &amp; BODY COMPOSITION',
-    imgId: '1oD_YoF-vIuVb_oHjMYl5xBVk1JiA_JNR',
+    imgId: '1xr8_wTLWiBfAvAY-pMOfiVqaFErn1tA5',
     imgAlt: 'AOD 9604',
     vialLabel: null,
     desc: 'AOD-9604 is a modified 16-amino-acid fragment of human growth hormone researched for lipolysis and fat-metabolism pathways. Early research explored whether it could retain fat-mobilising effects without broader GH or IGF-1 activity. Human evidence is mixed, so it should be framed cautiously.',
@@ -1600,8 +1607,7 @@ function renderProductPage(p) {
 <nav>
   <div class="nav-inner">
     <a href="#" class="nav-logo">
-      <div class="nav-logo-mark">P</div>
-      Peptides Australia
+      <img src="https://lh3.googleusercontent.com/d/1mtkyEmHdVUSq1UBag5DQbSOB8YIuU1fT" alt="Peptides Australia" />
     </a>
     <button class="nav-toggle" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Open menu">
       <span></span><span></span><span></span>
@@ -1702,17 +1708,26 @@ function showProductPage(slug) {
   window.scrollTo(0, 0);
 }
 
-function showMainPage() {
+function showMainPage(sectionId) {
   document.getElementById('main-content').style.display = '';
   document.getElementById('product-view').style.display = 'none';
+  if (sectionId) {
+    const el = document.getElementById(sectionId);
+    if (el) { setTimeout(() => el.scrollIntoView({ behavior: 'smooth' }), 30); return; }
+  }
   window.scrollTo(0, 0);
 }
 
 function router() {
   const hash = window.location.hash;
   const match = hash.match(/^#product\/(.+)$/);
-  if (match) { showProductPage(match[1]); }
-  else { showMainPage(); }
+  if (match) {
+    showProductPage(match[1]);
+  } else if (hash && hash.length > 1) {
+    showMainPage(hash.slice(1));
+  } else {
+    showMainPage();
+  }
 }
 
 window.addEventListener('hashchange', router);
